@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أيقونة نسخ</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            margin: 0;
+            position: relative;
+        }
+
+        .copy-icon {
+            cursor: pointer;
+            width: 300px; /* حجم الصورة */
+            height: auto;
+        }
+
+        #message {
+            color: green;
+            font-size: 24px;
+            text-align: center;
+            position: absolute;
+            top: 550px; /* تعديل الموضع أسفل الصورة */
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="https://s5files.mobeasy.com/static/u/1520818/file-1520818-876671.png" 
+         alt="Copy Icon" class="copy-icon" onclick="copyToClipboard()">
+
+    <p id="message">تم النسخ بنجاح!</p>
+
+    <script>
+        function copyToClipboard() {
+            const url = "https://www.onlinegdb.com/online_python_compiler";
+            const tempInput = document.createElement("input");
+            tempInput.value = url;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // للأجهزة المحمولة
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            // إظهار رسالة النسخ
+            document.getElementById("message").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
